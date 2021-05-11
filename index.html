@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href="css/style.css" type="text/css" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/7f8f07744b.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Luckiest+Guy|Sriracha">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+      
+    </head>
+    
+    <body>
+        <audio id="backgroundMusic" allow="autoplay">
+            <source src="sounds/gameBackground.mp3" type="audio/mp3">
+        </audio>
+        
+        <div class="container-fluid" id="mainContainer">
+            <div class="row" id="mainRow">
+                <div class="col-lg-4" id="sidePanel">
+                    <h2>Memory Games</h2>
+                    <div class="row" id="counter">
+                        <p><span class="material-icons-outlined">rotate_right</span><span id="moveCounter">: 0</span></p>
+                        <p><span class="material-icons-outlined">timer</span><span id="timeCounter">: 00:00:00</span></p>
+                        <button onclick="muteMusic()">
+                            <span class="material-icons-outlined" id="volumeIcon">volume_up</span>
+                            <span id="volume">ON</span>
+                        </button>
+                        <button onclick="startGame()"><span class="material-icons-outlined" id="volumeIcon">refresh</span>RESTART</button>
+                        <button onclick="showScore()"><span class="material-icons-outlined" id="volumeIcon">format_list_numbered</span>SCOREBOARD</button>
+                    </div>
+                </div><!--End of sidePanel-->
+
+                <div class="col-lg-8 "id="gamePanel">
+                    <div class="container" id="cardDeck">
+                        <div class="row" id="cardRow">
+                            <div class="card m-2"  id="card">
+                                <i class="fas fa-cat" id="front"></i>
+                                <i class="fa fa-question-circle" id="back"></i>
+                            </div>
+                            <div class="card m-2"  id="card">
+                                <i class="fas fa-cat" id="front"></i>
+                                <i class="fa fa-question-circle" id="back"></i>
+                            </div>
+                            <div class="card m-2" id="card">
+                                <i class="fas fa-dog" id="front"></i>
+                                <i class="fa fa-question-circle" id="back"></i>
+                            </div>
+                            <div class="card m-2" id="card">
+                                <i class="fas fa-dog" id="front"></i>
+                                <i class="fa fa-question-circle" id="back"></i>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="card m-2"  id="card">
+                                <i class="fas fa-dove" id="front"></i>
+                                <i class="fa fa-question-circle" id="back"></i>
+                            </div>
+                            <div class="card m-2" id="card">
+                                <i class="fas fa-dove" id="front"></i>
+                                <i class="fa fa-question-circle" id="back"></i>
+                            </div>
+                            <div class="card m-2" id="card">
+                                <i class="fas fa-fish" id="front"></i>
+                                <i class="fa fa-question-circle" id="back"></i>
+                            </div>
+                            <div class="card m-2" id="card">
+                                <i class="fas fa-fish" id="front"></i>
+                                <i class="fa fa-question-circle" id="back"></i>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="card m-2" id="card" >
+                                <i class="fas fa-frog" id="front"></i>
+                                <i class="fa fa-question-circle" id="back"></i>
+                            </div>
+                            <div class="card m-2" id="card">
+                                <i class="fas fa-frog" id="front"></i>
+                                <i class="fa fa-question-circle" id="back"></i>
+                            </div>
+                            <div class="card m-2" id="card" >
+                                <i class="fas fa-horse" id="front"></i>
+                                <i class="fa fa-question-circle" id="back"></i>
+                            </div>
+                            <div class="card m-2" id="card" >
+                                <i class="fas fa-horse" id="front"></i>
+                                <i class="fa fa-question-circle" id="back"></i>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="card m-2" id="card" >
+                                <i class="fas fa-kiwi-bird" id="front"></i>
+                                <i class="fa fa-question-circle" id="back"></i>
+                            </div>
+                            <div class="card m-2" id="card">
+                                <i class="fas fa-kiwi-bird" id="front"></i>
+                                <i class="fa fa-question-circle" id="back"></i>
+                            </div>
+                            <div class="card m-2" id="card">
+                                <i class="fas fa-hippo" id="front"></i>
+                                <i class="fa fa-question-circle" id="back"></i>
+                            </div>
+                            <div class="card m-2" id="card" >
+                                <i class="fas fa-hippo" id="front"></i>
+                                <i class="fa fa-question-circle" id="back"></i>
+                            </div>
+                        </div>
+                    </div><!--End of Card Deck-->
+                </div>
+            </div>
+
+            <!--Welcome pop up-->
+            <div id="startPopUp" class="overlay show">
+                <div class="popup" id="startGame">
+                    <h1>WELCOME</h1>
+                    <div id="instructions">
+                        <h2>Memory Games</h2>
+                        <p>Find the missing pairs by turning the stone over 2 by 2</p>
+                        <p>When the 2 stones match, it will cracked!</p>
+                        <p>Otherwise the stones will automatically turned face down</p>
+                        <p>To win this game player must find 8 missing pairs.</p>
+                        <p>Good Luck!</p>
+                    </div>
+                    <button onclick="enterGame()"><i class="fas fa-play" id="startIcon"></i></button>
+                </div>
+            </div>
+
+            <!--Scoreboard pop up-->
+            <div id="scorePopUp" class="overlay">
+                <div class="popup" id="scoreWindow">
+                    <h1>SCOREBOARD</h1>
+                    <div id="scoreboard">
+                        <ol id='scoreList'></ol>
+                    </div>
+                    <button onclick="document.getElementById('scorePopUp').classList.remove('show')">CLOSE</button>
+                </div>
+            </div>
+
+            <!--Game Over pop up-->
+            <div id="popUp" class="overlay">
+                <div class="popup" id="gameOver">
+                    <h2>Congratulations!</h2>
+                    <h3 id="showScore">9999</h3>
+                    <div class="displayStats">
+                        <p id="showMove">Move:</p>
+                        <p id="showTime">Time:</p>
+                    </div>
+                    <input type="text" placeholder="Enter your name..." id="userName">
+                    <button onclick="enterStats()"><span>Enter</span></button>
+                    <p id="alert" style="color: red;"></p>
+                </div>
+            </div>
+
+        </div>
+        <script src="js/java.js" async></script>
+    </body>
+</html>

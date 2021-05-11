@@ -1,0 +1,293 @@
+body{
+    height: 100vh;
+    background-image:url('../images/gameBackground.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+#mainContainer{
+    height:100%;
+    width:100%;
+}
+#mainRow{
+    height:100%;
+    margin:15px;
+    justify-content: center;
+}
+
+/**Side panel Section**/
+#sidePanel h2{
+    text-align:center;
+    font-family: Luckiest Guy;
+    color:sandybrown;
+    font-size:50px;
+    -webkit-text-stroke: 2px rgb(83, 58, 48);
+    text-shadow:2px 3px 2px rgba(83, 58, 48, 0.774); 
+}
+#sidePanel p{
+    font-family : Sriracha;
+    font-size: 40px;
+    color: white;
+}
+#sidePanel .material-icons-outlined{
+    font-size: 40px;
+    margin-bottom:5px;
+}
+#sidePanel button{
+    border:none;
+    background-color: transparent;
+    font-family: Sriracha;
+    font-size: 25px;
+    border-radius: 20px;
+    color: rgba(228, 231, 52);
+    margin-right: 10px;
+    outline: none;
+}
+
+#sidePanel button:hover{
+    cursor: pointer;
+    color: white;
+}
+#sidePanel{
+    width: max-content;
+    height:max-content;
+    background-color: rgba(66, 138, 127, 0.596);
+    border: 4px solid rgba(228, 231, 52, 0.336);
+    border-radius: 20px;
+    background-size: 100% 100%;
+    padding: 30px 50px 30px 50px;
+}
+.material-icons-outlined{
+    vertical-align:middle;
+    color: sandybrown;
+}
+
+/**Game panel Section**/
+#gamePanel{
+    margin-top:10px;
+    perspective: 1000px;
+    height:max-content;
+    width:auto;
+}
+#counter {
+    display: inline;
+}
+
+#cardDeck {
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.178);
+    border: 2px solid rgba(255, 255, 255, 0.363);
+    width:max-content;
+    position:relative;
+}
+#cardRow{
+    height:100%;
+}
+.card{
+    background-image: url('../images/card.png');
+    background-size: cover;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+    width: 135px;
+    height: 135px;
+    font-size: 80px;
+    justify-content: space-around;
+    align-items: center;
+}
+.matched{
+    background-image: url('../images/cardMatched.png');
+    background-size: cover;
+}
+.card:active{
+    transform: scale(0.97);
+    transition: transform .2s;
+}
+.flip{
+    transform: rotateY(180deg);
+    pointer-events: none;
+}
+.disable{
+    pointer-events: none;
+}
+#front, #back{
+    position:absolute;
+    backface-visibility: hidden;
+}
+#front {
+    transform: rotateY(180deg);
+}
+    
+#card{
+    border:none;
+    background-color: transparent;
+}
+.fa-question-circle{
+    color: rgb(170, 127,108);
+}
+.card .fas{
+    color: rgb(128, 93, 78);
+}
+.matched .fas {
+    opacity: 0.5;
+    color:rgba(136, 88, 68, 0.774);
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.432), 0px -1px 0px rgba(0, 0, 0, 0.911);
+}
+
+/**CSS for pop up**/
+.popup h1{
+    font-family: Luckiest Guy;
+    color:rgba(66, 138, 127);
+    font-size: 70px;
+    -webkit-text-stroke: 2px rgba(228, 231, 52, 0.986);
+    text-shadow:2px 2px 2px rgba(228, 231, 52, 0.336); 
+}
+.popup h2, .popup h3{
+    font-family: Luckiest Guy;
+    color:sandybrown;
+    font-size:40px;
+    -webkit-text-stroke: 2px rgb(83, 58, 48);
+    text-shadow:2px 2px 2px rgb(83, 58, 48); 
+    text-align: center;
+}
+.popup p{
+    font-family : Sriracha;
+    font-size: 25px;
+    color:white;
+}
+.overlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.7);
+	transition: opacity 500ms;
+	visibility: hidden;
+	opacity: 0;
+}
+.overlay:target {
+	visibility: visible;
+	opacity: 1;
+} 
+
+/**Welcome page pop up**/
+#startGame{
+    text-align: center;
+    width:max-content;
+    position:absolute;
+    margin:0;
+	padding: 50px;
+    top:50%;
+    left:50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+#instructions{
+    background-image : url('../images/gameOver.png');
+    background-size: 100% 100%;
+    padding: 30px 50px;
+}
+#startGame button{
+    border-radius: 50%;
+    height:100px;
+    width:100px;
+    border:none;
+    background-color:rgba(66, 138, 127);
+    text-align: center;
+    outline: none;
+}
+#startGame button:hover{
+    border: 2px solid rgba(228, 231, 52);
+    cursor:pointer;
+}
+#startGame button .fas{
+    font-size: 40px;
+    color:rgba(228, 231, 52);
+    
+}
+
+/**Scoreboard pop up**/
+#scoreWindow{
+    text-align: center;
+    width:max-content;
+    position:absolute;
+    margin:0;
+	padding: 50px;
+    top:50%;
+    left:50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+#scoreboard{
+    background-image : url('../images/gameOver.png');
+    background-size: 100% 100%;
+    padding: 30px 50px;
+    height: 300px;
+}
+#scoreList{
+    font-family: Sriracha;
+    color: white;
+    font-size: 25px;
+}
+#scoreWindow button{
+    font-family: Luckiest Guy;
+    font-size:30px;
+    background-color:rgba(66, 138, 127);
+    color:rgba(228, 231, 52);
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    outline:none;
+}
+#scoreWindow button:hover{
+    border: 2px solid rgba(228, 231, 52);
+    cursor: pointer;
+}
+
+/**GameOver pop up**/
+#gameOver {
+    text-align: center;
+    background-image: url('../images/gameOver.png');
+    background-size: 100% 100%;
+	width: max-content;
+    position:absolute;
+    margin:0;
+	padding: 50px;
+    top:50%;
+    left:50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+	transition: all 5s ease-in-out;
+}
+#gameOver button{
+    height: 50px;
+    padding: 0 20px;
+    border-radius: 20px;
+    font-family : Luckiest Guy;
+    font-size: 20px;
+    color: rgb(228, 231, 52);
+    background-color: rgba(66, 138, 127);
+    border:none; 
+    outline: none;
+}
+#gameOver button:hover{
+    border: 2px solid rgb(228, 231, 52);
+    cursor: pointer;
+}
+#gameOver input{
+    border-radius: 20px;
+    border: 3px solid sandybrown;
+    background-color:wheat;
+    height: 50px;
+    outline: none;
+}
+#gameOver input[type='text']{
+    font-family: Sriracha;
+    font-size:20px;
+    color: black;
+}
+.show {
+	visibility: visible !important;
+	opacity: 100 !important;
+}
